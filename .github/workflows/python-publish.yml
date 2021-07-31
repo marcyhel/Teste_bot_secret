@@ -1,0 +1,46 @@
+name: "Bot Tele"
+
+on:
+  schedule:
+    - cron: "* * * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+    - cron: "* * * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+   
+  workflow_dispatch:
+
+env:
+  RUN_ENV: 'prod'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          # ref: master
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Random sleep
+        if: github.event_name == 'schedule'
+        run: sleep $(shuf -i 0-1 -n 1)
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyTelegramBotAPI
+      - name: Run sign
+        env:
+          USER_AGENT: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0'
+      
+          BOT_KEY: ${{ secrets.BOT_KEY }}
+          BOT_CHAVE: ${{ secrets.BOT_CHAVE }}
+        
+        run: |
+          python3 ./bottest.py
