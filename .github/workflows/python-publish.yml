@@ -34,8 +34,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyTelegramBotAPI
           pip install beautifulsoup4
+          pip install pyTelegramBotAPI
           pip install requests
       - name: Run sign
         env:
