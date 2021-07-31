@@ -84,14 +84,17 @@ bot = telebot.TeleBot(chaves[0])
 
 if(BOT_CHAVE=='0'):
 	print("ok")
+	for i in chaves[1:]:
+		bot.send_message(i, text="Frase Aleatória.\n\n")
 	os.environ["BOT_CHAVE"] = "1"
 elif(BOT_CHAVE=='1'):
 	os.environ["BOT_CHAVE"] = "0"
-	print("okdd")
+	for i in chaves[1:]:
+		bot.send_message(i, text="funfo\n\n")
 
 	print(BOT_CHAVE)
 
 enviar=frases[random.randint(0,len(frases)-1)]
 bot = telebot.TeleBot(chaves[0])
-#for i in chaves[1:]:
-#	bot.send_message(i, text="Frase Aleatória.\n\n"+enviar)
+for i in chaves[1:]:
+	bot.send_message(i, text="Frase Aleatória.\n\n"+enviar)
