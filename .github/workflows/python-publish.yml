@@ -2,8 +2,8 @@ name: "Bot Tele"
 
 on:
   schedule:
-    - cron: "* * * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
-    - cron: "* * * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+    - cron: "50 0/2 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+    
    
   workflow_dispatch:
 
