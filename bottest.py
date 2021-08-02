@@ -57,3 +57,13 @@ if(verificado):
 bot = telebot.TeleBot(chaves[0])
 for i in chaves[1:]:
 	bot.send_message(i, text=str(BOT_CHAVE)+" - "+str((int(BOT_CHAVE)+1)), parse_mode= 'Markdown')
+	
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+	bot.reply_to(message, "Howdy, how are you doing?")
+
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+	bot.reply_to(message, message.text)
+
+bot.polling()
