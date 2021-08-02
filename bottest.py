@@ -56,4 +56,4 @@ if(verificado):
 	#enviar=frases[random.randint(0,len(frases)-1)]
 bot = telebot.TeleBot(chaves[0])
 for i in chaves[1:]:
-	bot.send_message(i, text=str(BOT_CHAVE), parse_mode= 'Markdown')
+	bot.send_message(i, text=str(BOT_CHAVE)+" - "+str((int(BOT_CHAVE)+1)), parse_mode= 'Markdown')
