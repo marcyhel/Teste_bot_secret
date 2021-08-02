@@ -53,10 +53,11 @@ if(verificado):
 bot = telebot.TeleBot(chaves[0])
 arquivo = open('chave.txt','r')
 
-texto = arquivo.readlines() #quebra as linhas do arquivo em vetores 
-#print("vetor texto -> ",texto) #aqui eu mostro
-#print("")
-print(texto[0])
+texto = arquivo.readlines() 
+arquivo.close()
+arquivo = open('chave.txt','w')
+arquivo.write(str(int(texto[0])+1))
+arquivo.close()
 for i in chaves[1:]:
 	bot.send_message(i, text=texto[0], parse_mode= 'Markdown')
 
