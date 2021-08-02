@@ -17,7 +17,7 @@ if os.environ.get('BOT_CHAVE', '') != '':
 chaves=BOT_KEY.split(";")
 
 
-
+os.environ['BOT_CHAVE']=(int(BOT_CHAVE)+1)
 
 url='https://www.tecmundo.com.br/noticias'
 bss=req.get(url)
@@ -56,4 +56,4 @@ if(verificado):
 	#enviar=frases[random.randint(0,len(frases)-1)]
 	bot = telebot.TeleBot(chaves[0])
 	for i in chaves[1:]:
-		bot.send_message(i, text=titulo+"\n\n"+conteudo, parse_mode= 'Markdown')
+		bot.send_message(i, text=BOT_CHAVE, parse_mode= 'Markdown')
