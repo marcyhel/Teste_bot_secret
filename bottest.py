@@ -17,7 +17,7 @@ if os.environ.get('BOT_CHAVE', '') != '':
 chaves=BOT_KEY.split(";")
 
 
-os.environ['BOT_CHAVE']=str(int(BOT_CHAVE)+1)
+os.environ['BOT_CHAVE'] = str((int(BOT_CHAVE)+1))
 
 url='https://www.tecmundo.com.br/noticias'
 bss=req.get(url)
