@@ -9,7 +9,7 @@ on:
 
 env:
   RUN_ENV: 'prod'
-
+permissions: read-all|write-all
 jobs:
   build:
     runs-on: ubuntu-latest
