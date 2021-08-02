@@ -4,12 +4,12 @@ on:
   schedule:
     - cron: "* * * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
     
-   
+  permissions: read-all|write-all
   workflow_dispatch:
-
+  
 env:
   RUN_ENV: 'prod'
-permissions: read-all|write-all
+
 jobs:
   build:
     runs-on: ubuntu-latest
