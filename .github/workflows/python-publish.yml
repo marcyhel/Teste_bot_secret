@@ -6,13 +6,13 @@ on:
     
   
   workflow_dispatch:
-  
+permissions: read-all|write-all
 env:
   RUN_ENV: 'prod'
 
 jobs:
   build:
-    permissions: read-all|write-all
+    
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/master'
 
