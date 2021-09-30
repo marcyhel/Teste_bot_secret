@@ -2,7 +2,7 @@ name: "Bot Tele"
 
 on:
   schedule:
-    - cron: "* * * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
+    - cron: "1 18 * * *"  # Minute/Hour/Day/Month/Weekday (UTC)
     
   
   workflow_dispatch:
@@ -46,4 +46,4 @@ jobs:
           BOT_CHAVE: ${{ secrets.BOT_CHAVE }}
         
         run: |
-          python3 ./bottest.py
+          python3 ./finance.py
