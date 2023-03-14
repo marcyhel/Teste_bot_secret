@@ -34,24 +34,26 @@ class GetFinace:
 		self.lucro_acao=0
 		self.get()
 	def get(self):
-		url='https://www.google.com/finance/quote/'+self.tag+':BVMF'
+		try:
+			url='https://www.google.com/finance/quote/'+self.tag+':BVMF'
 
-		bss=req.get(url)
-		html=bs(bss.text,'html.parser')
-		self.price=html.find_all("div", {"class": "YMlKec fxKbKc"})
-		self.price=self.price[0].text[2:]
+			bss=req.get(url)
+			html=bs(bss.text,'html.parser')
+			self.price=html.find_all("div", {"class": "YMlKec fxKbKc"})
+			self.price=self.price[0].text[2:]
 
-		self.price=float(self.price)
+			self.price=float(self.price)
 
 
-		self.lucro_acao=self.price - self.valor
-		self.lucro=self.lucro_acao*self.qtd
+			self.lucro_acao=self.price - self.valor
+			self.lucro=self.lucro_acao*self.qtd
 
-		
-		print ('---- '+self.tag+' ----')
-		print (' preço -- '+str(self.price))
-		print()
 
+			print ('---- '+self.tag+' ----')
+			print (' preço -- '+str(self.price))
+			print()
+		except:
+			pass
 tags=[
 
 {'tag':"bmgb4",'qtd':1,'valor':4.49},
